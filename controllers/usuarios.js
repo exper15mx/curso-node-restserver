@@ -80,6 +80,9 @@ const usuariosDelete = async(req, res = response) => {
     //Cambiar estado del usuario (borrado lógico)
     const usuario = await Usuario.findByIdAndUpdate(id, { estado: false }, {new:true} );
 
+    //Se puede acceder a la información del usuario logueado desde el request de "otro middleware"
+    //const usuarioAutenticado = req.usuario;
+
     res.json(usuario);
 }
 
